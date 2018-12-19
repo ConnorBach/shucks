@@ -4,11 +4,12 @@ import './Message.css';
 class Message extends Component {
   constructor(props) {
     super(props);
+    this.type = props.type
   }
   render() {
     return (
       <div className="Message">
-        <div className="recieved">
+        <div className={this.props.type}>
           {this.props.message}
         </div>
         <br clear="all" />
