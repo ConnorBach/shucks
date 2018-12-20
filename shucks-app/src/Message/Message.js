@@ -14,7 +14,6 @@ class Message extends Component {
         </div>
         <br clear="all" />
       </div>
-
     );
   }
 }
