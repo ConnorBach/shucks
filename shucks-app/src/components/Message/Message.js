@@ -7,6 +7,7 @@ class Message extends Component {
     this.username = props.username
   }
   render() {
+    console.log(this.props.msg);
     return (
       <div className="Message">
         <div className={this.props.username == "orwinmc" ? "sent" : "recieved"}>

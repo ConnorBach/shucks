@@ -16,7 +16,7 @@ class MessageMaker extends Component {
 
       if (event.keyCode === 13 && !event.shiftKey) {
         let textbox = document.getElementsByClassName("textbox")[0];
-        this.props.addMessage(textbox.innerHTML, "orwinmc");
+        this.props.addMessage(textbox.innerText, "orwinmc");
         textbox.innerHTML = "";
       }
   }
