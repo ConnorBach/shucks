@@ -3,7 +3,9 @@
   padding: 1em;
   max-width: 60%;
   position:relative;
+
   white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .recieved .messageBubble {

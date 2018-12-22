@@ -11,11 +11,11 @@
   padding: 1em;
   border: 1px #eeeeee solid;
   resize: none;
+  min-height: 1em;
   max-height: 10em;
   overflow: scroll;
   background-color: white;
   width: calc(100% - 2em);
-  white-space: pre-wrap;
 }
 
 .textbox:focus {

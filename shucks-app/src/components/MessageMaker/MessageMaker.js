@@ -5,20 +5,24 @@ class MessageMaker extends Component {
   render() {
     return (
       <div className="MessageMaker">
-        <div className="textbox" onKeyPress={() => this.enterCheck()} contentEditable="true">
+        <div className="textbox" onKeyDown={(e) => this.enterCheck(e)} contentEditable="true">
         </div>
       </div>
     );
   }
 
-  enterCheck() {
-      var event = window.event;
+  enterCheck(e) {
+    if (e.keyCode == 13) {
+      if (!e.shiftKey) {
+        this.props.addMessage(document.getElementsByClassName("textbox")[0].innerText, "orwinmc");
 
-      if (event.keyCode === 13 && !event.shiftKey) {
-        let textbox = document.getElementsByClassName("textbox")[0];
-        this.props.addMessage(textbox.innerText, "orwinmc");
-        textbox.innerHTML = "";
+        setTimeout(function() {
+          document.getElementsByClassName("textbox")[0].innerText = ""
+        }, 0);
+      } else {
+        //document.getElementsByClassName("textbox")[0].style.height="3em";
       }
+    }
   }
 }
 
