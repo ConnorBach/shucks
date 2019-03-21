@@ -11,7 +11,6 @@
   padding: 1em;
   border: 1px #eeeeee solid;
   resize: none;
-  min-height: 1em;
   max-height: 10em;
   overflow: scroll;
   background-color: white;
@@ -21,4 +20,9 @@
 .textbox:focus {
   border: 1px solid #BD77FF;
   outline: none;
+}
+
+.textbox:empty::before {
+  content:"Message";
+  color:#aaaaaa;
 }

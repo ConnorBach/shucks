@@ -14,13 +14,11 @@ class MessageMaker extends Component {
   enterCheck(e) {
     if (e.keyCode == 13) {
       if (!e.shiftKey) {
-        this.props.addMessage(document.getElementsByClassName("textbox")[0].innerText, "orwinmc");
-
+        let textbox = document.getElementsByClassName("textbox")[0]
+        this.props.addMessage(textbox.innerText, "orwinmc");
         setTimeout(function() {
-          document.getElementsByClassName("textbox")[0].innerText = ""
+          textbox.innerText = "";
         }, 0);
-      } else {
-        //document.getElementsByClassName("textbox")[0].style.height="3em";
       }
     }
   }
