@@ -13,7 +13,7 @@ class Dashboard extends Component {
   }
 
   logout() {
-    sessionStorage.removeItem("username");
+    //sessionStorage.removeItem("username");
     window.location = "http://localhost:3000/login";
   }
 }

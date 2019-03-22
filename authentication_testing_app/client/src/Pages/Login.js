@@ -17,33 +17,6 @@ class Login extends Component {
   }
 
   login() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-
-    var loginInfo = {
-      username:username,
-      password:password
-    };
-    console.log(loginInfo);
-
-    var url = "http://localhost:5000/users/"+loginInfo.username;
-    console.log(url);
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    //xhr.setRequestHeader("Content-Type", 'application/json');
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        if (xhr.responseText === null) {
-          window.location = "http://localhost:3000/login";
-        } else if (JSON.parse(xhr.responseText).password !== loginInfo.password) {
-          window.location = "http://localhost:3000/login";
-        } else {
-          sessionStorage.setItem("username", username);
-          window.location = "http://localhost:3000/dashboard";
-        }
-      }
-    };
-    xhr.send();
   }
 }
 

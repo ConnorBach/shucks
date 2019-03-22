@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, BrowserRouter} from 'react-router-dom'
 import Login from './Pages/Login'
 import Register from './Pages/Register'
 import Dashboard from './Pages/Dashboard'
@@ -9,11 +9,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Switch>
-          <Route exact={true} path="/login" component={Login} />
-          <Route exact={true} path="/register" component={Register} />
-          <Route exact={true} path="/dashboard" component={Dashboard} />
-        </Switch>
+        <BrowserRouter>
+          <Switch>
+            <Route exact={true} path="/login" component={Login} />
+            <Route exact={true} path="/register" component={Register} />
+            <Route exact={true} path="/dashboard" component={Dashboard} />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }
