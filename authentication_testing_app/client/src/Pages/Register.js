@@ -6,7 +6,7 @@ class Register extends Component {
   render() {
     return (
       <div className="Register">
-      <h1>register</h1>
+      <h1>Register</h1>
         <form id="register">
           <input type="text" id="firstname" tabIndex="1" placeholder="First Name" required/><br />
           <input type="text" id="lastname" tabIndex="2" placeholder="Last Name" required/><br />
@@ -46,7 +46,6 @@ class Register extends Component {
     };
     xhr.send(JSON.stringify(registrationInfo));
   }
-
 }
 
 export default Register;

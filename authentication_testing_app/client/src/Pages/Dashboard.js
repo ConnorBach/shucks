@@ -6,10 +6,15 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <h1>Dashboard</h1>
-        Welcome<br/>
-        <a href="http://localhost:3000/login">Logout</a>
+        Welcome {sessionStorage.getItem("username")}<br/>
+        <button type="button" onClick={(e) => this.logout(e)}>Logout</button>
       </div>
     );
+  }
+
+  logout() {
+    sessionStorage.removeItem("username");
+    window.location = "http://localhost:3000/login";
   }
 }
 
