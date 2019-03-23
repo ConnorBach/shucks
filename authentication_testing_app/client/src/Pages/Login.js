@@ -17,6 +17,29 @@ class Login extends Component {
   }
 
   login() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    var loginInfo = {
+      username:username,
+      password:password
+    };
+
+    var url = "http://localhost:5000/auth";
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", 'application/json');
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        console.log(xhr.status);
+        //window.location = "http://localhost:3000/dashboard"
+      } else {
+        console.log(xhr.status);
+        //window.location = "http://localhost:3000/login"
+      }
+    };
+    xhr.send(JSON.stringify(loginInfo));
   }
 }
 

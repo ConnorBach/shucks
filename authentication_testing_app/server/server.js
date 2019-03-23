@@ -2,26 +2,25 @@ const express = require('express');
 const process = require('process');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-//const session = require('express-session');
-//const passport = require('passport');
-//require('./config/passport');
-var cors = require('cors')
+const session = require('express-session');
+const passport = require('passport');
+const cors = require('cors');
 
 const app = express();
 // Not sure what last 2 params do (Code for express-session / passport)
 /*app.use(session({
   secret: 'alskdfjlsakfjl9283479283djj2389dj288jd',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   //cookie: {secure: true}
 }));
 app.use(passport.initialize());
 app.use(passport.session());*/
 
-// Prevents CORS issue
-app.use(cors())
+// Prevents CORS issue??
+app.use(cors());
 
-// Decideds Port
+// Decides Port
 const port = process.env.PORT || 5000;
 
 // MongoDB
@@ -37,6 +36,11 @@ app.use(bodyParser.json());
 // Add User API Routes
 var userRoutes = require('./api/routes/UserRoutes');
 userRoutes(app);
+
+// Add Auth Routes
+//require('./config/passport');
+//var authRoutes = require('./api/routes/AuthRoutes');
+//authRoutes(app);
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));

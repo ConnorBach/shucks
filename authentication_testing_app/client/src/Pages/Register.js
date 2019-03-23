@@ -33,7 +33,6 @@ class Register extends Component {
       username:username,
       password:password
     };
-    console.log(registrationInfo);
 
     var url = "http://localhost:5000/users";
 

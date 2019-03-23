@@ -12,6 +12,22 @@ class Dashboard extends Component {
     );
   }
 
+  componentWillMount() {
+    var url = "http://localhost:5000/auth";
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.status);
+      } else {
+        console.log(xhr.status);
+        //window.location = 'http://localhost:3000/login'
+      }
+    }
+    xhr.open("GET", url, true); // true for asynchronous
+    xhr.send(null);
+  }
+
   logout() {
     //sessionStorage.removeItem("username");
     window.location = "http://localhost:3000/login";

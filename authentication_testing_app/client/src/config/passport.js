@@ -19,6 +19,19 @@ passport.use(new LocalStrategy(
 ));
 
 passport.serializeUser(function(user, cb) {
+  console.log("serialize");
+  cb(null, user.id);
+});
+
+passport.deserializeUser(function(user, cb) {
+  console.log("deserialize");
+  cb(null, user);
+});
+
+
+
+/*passport.serializeUser(function(user, cb) {
+  console.log(user.id);
   cb(null, user.id);
 });
 
@@ -27,4 +40,4 @@ passport.deserializeUser(function(id, cb) {
     if (err) { return cb(err); }
     cb(null, user);
   });
-});
+});*/
