@@ -26,16 +26,16 @@ class Login extends Component {
     };
 
     var url = "http://localhost:5000/auth";
-
+    console.log(loginInfo);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", 'application/json');
     xhr.onload = function () {
       if (xhr.status === 200) {
-        console.log(xhr.status);
+        //console.log(xhr.status);
         //window.location = "http://localhost:3000/dashboard"
       } else {
-        console.log(xhr.status);
+        //console.log(xhr.status);
         //window.location = "http://localhost:3000/login"
       }
     };
