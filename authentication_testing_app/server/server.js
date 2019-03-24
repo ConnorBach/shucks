@@ -32,7 +32,7 @@ app.use(session({
   secret: 'alskdfjlsakfj389dj288jd',
   resave: false,
   saveUninitialized: true,
-  cookie: {secure: true}
+  cookie: {secure: false}
   //store: new RedisStore()
 }));
 require("./config/passport");

@@ -26,10 +26,9 @@ class Login extends Component {
     };
 
     var url = "http://localhost:5000/auth";
-    console.log(loginInfo);
+    //console.log(loginInfo);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
-    xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", 'application/json');
     xhr.onload = function () {
       if (xhr.status === 200) {
@@ -40,6 +39,7 @@ class Login extends Component {
         window.location = "http://localhost:3000/login"
       }
     };
+    xhr.withCredentials = true;
     xhr.send(JSON.stringify(loginInfo));
   }
 }

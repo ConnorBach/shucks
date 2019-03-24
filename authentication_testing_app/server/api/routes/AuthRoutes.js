@@ -1,6 +1,8 @@
 var passport = require('passport');
+var bodyParser = require('body-parser');
 
 module.exports = function(app) {
+  var urlencodedParser = bodyParser.urlencoded({extended: false});
   app.post('/auth', passport.authenticate('local', {
     successRedirect: '/success',
     failureRedirect: '/invalid'
@@ -12,13 +14,13 @@ module.exports = function(app) {
   }));
 
   app.get('/success', function(req, res) {
-    console.log('success');
+    console.log('SUCCESS');
     console.log(req.user);
     res.sendStatus(200);
   });
 
   app.get('/invalid', function(req, res) {
-    console.log('invalid');
+    console.log('INVALID');
     console.log(req.user);
     res.sendStatus(403);
   });
