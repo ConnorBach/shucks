@@ -18,12 +18,13 @@ class Dashboard extends Component {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log(xhr.status);
+        console.log("SUCCESS: "+xhr.status);
       } else {
-        console.log(xhr.status);
+        console.log("This sucks... it failed: "+xhr.status);
         //window.location = 'http://localhost:3000/login'
       }
     }
+    xhr.withCredentials = true;
     xhr.open("GET", url, true); // true for asynchronous
     xhr.send(null);
   }

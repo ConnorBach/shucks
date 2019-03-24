@@ -4,12 +4,16 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
+//var RedisStore = require('connect-redis')(session);
 const cors = require('cors');
 
 const app = express();
 
 // Prevents CORS issue??
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:3000'
+}));
 
 // Decides Port
 const port = process.env.PORT || 5000;
@@ -24,12 +28,12 @@ mongoose.connect(process.env.MONGODB_URI+"/"+db_name);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Not sure what last 2 params do (Code for express-session / passport)
 app.use(session({
-  secret: 'alskdfjlsakfjl9283479283djj2389dj288jd',
+  secret: 'alskdfjlsakfj389dj288jd',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: {secure: true}
+  //store: new RedisStore()
 }));
 require("./config/passport");
 app.use(passport.initialize());

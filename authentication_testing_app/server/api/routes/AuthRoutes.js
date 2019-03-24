@@ -1,14 +1,29 @@
+var passport = require('passport');
+
 module.exports = function(app) {
-  var auth = require('../controllers/AuthController');
+  app.post('/auth', passport.authenticate('local', {
+    successRedirect: '/success',
+    failureRedirect: '/invalid'
+  }));
 
-  /*app.get('/auth', passport.authenticate('basic',
-    function(req, res) {
-      res.json({ id: req.user.id, username: req.user.username });
-    });*/
-  app.route('/auth')
-    .get(auth.verify)
-    .post(auth.login);
+  app.get('/auth', passport.authenticate('local', {
+    successRedirect: '/success',
+    failureRedirect: '/invalid'
+  }));
 
-  app.route('/logout')
-    .get(auth.logout);
+  app.get('/success', function(req, res) {
+    console.log('success');
+    console.log(req.user);
+    res.sendStatus(200);
+  });
+
+  app.get('/invalid', function(req, res) {
+    console.log('invalid');
+    console.log(req.user);
+    res.sendStatus(403);
+  });
+
+  app.get('/logout', function(req, res) {
+    req.logout();
+  });
 };
