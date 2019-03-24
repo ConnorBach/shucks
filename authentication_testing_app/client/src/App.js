@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter} from 'react-router-dom'
 import Login from './Pages/Login'
 import Register from './Pages/Register'
 import Dashboard from './Pages/Dashboard'
+import ProtectedRoute from './Components/ProtectedRoute'
 //import './App.css';
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
           <Switch>
             <Route exact={true} path="/login" component={Login} />
             <Route exact={true} path="/register" component={Register} />
-            <Route exact={true} path="/dashboard" component={Dashboard} />
+            <ProtectedRoute exact={true} path="/dashboard" component={Dashboard} />
           </Switch>
         </BrowserRouter>
       </div>

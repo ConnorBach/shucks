@@ -32,11 +32,9 @@ class Login extends Component {
     xhr.setRequestHeader("Content-Type", 'application/json');
     xhr.onload = function () {
       if (xhr.status === 200) {
-        console.log(xhr.status);
-        window.location = "http://localhost:3000/dashboard"
+        window.location = "http://localhost:3000/dashboard";
       } else {
-        console.log(xhr.status);
-        window.location = "http://localhost:3000/login"
+        window.location = "http://localhost:3000/login";
       }
     };
     xhr.withCredentials = true;

@@ -13,25 +13,39 @@ class Dashboard extends Component {
   }
 
   componentWillMount() {
-    var url = "http://localhost:5000/auth";
+    /*var url = "http://localhost:5000/auth";
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log("SUCCESS: "+xhr.status);
-      } else {
-        console.log("This sucks... it failed: "+xhr.status);
-        //window.location = 'http://localhost:3000/login'
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          console.log("SUCCESS: " + xhr.status);
+        } else {
+          console.log("FAIL: " + xhr.status);
+        }
+      }
+    }
+    xhr.withCredentials = true;
+    xhr.open("GET", url, true); // true for asynchronous
+    xhr.send(null);*/
+  }
+
+  logout() {
+    var url = "http://localhost:5000/logout";
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          window.location = "http://localhost:3000/login";
+        } else {
+          console.log("ERROR");
+        }
       }
     }
     xhr.withCredentials = true;
     xhr.open("GET", url, true); // true for asynchronous
     xhr.send(null);
-  }
-
-  logout() {
-    //sessionStorage.removeItem("username");
-    window.location = "http://localhost:3000/login";
   }
 }
 

@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(session({
   secret: 'alskdfjlsakfj389dj288jd',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: {secure: false}
   //store: new RedisStore()
 }));
