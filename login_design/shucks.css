@@ -1,9 +1,12 @@
 body {
   font-family: sans-serif;
   background-color: #FAFAFA;
+  //background-image: url("moonlight.jpg");
+  //background-repeat: no-repeat;
+  //background-size: cover;
 }
 
-button {
+.primary-button {
   border: none;
 
   color: white;
@@ -15,12 +18,33 @@ button {
   width:100%;
 }
 
-button:active {
+.primary-button:active {
   background-color: #48286D;
   border: none;
 }
 
-button:hover {
+.primary-button:hover {
+  cursor:pointer;
+}
+
+.secondary-button {
+  border: none;
+
+  color: white;
+  background-color: #F8286D;
+
+  border-radius: 0.7em;
+  padding: 0.8em;
+  font-size: 12pt;
+  width:100%;
+}
+
+.secondary-button:active {
+  background-color: #A8246A;
+  border: none;
+}
+
+.secondary-button:hover {
   cursor:pointer;
 }
 
@@ -36,6 +60,10 @@ input[type="text"], input[type="password"]{
   width:100%;
   margin:1em 0em;
 }
+
+/*input:focus::placeholder {
+    color:    #FFFFFF;
+}*/
 
 input[type="text"]:focus, input[type="password"]:focus {
   border:#8E1CCC 1px solid;
@@ -64,14 +92,14 @@ h1 {
   padding:1em;
   width:80%;
   max-width: 500px;
-  //border:solid 1px #DDDDDD;
-  //background-color: #FFFFFF;
 }
 
 
 a {
   text-decoration: none;
-  color: #333333;
+  //color: #F8286D;
+  color: #F8286D;
+  //color: #8E1CCC;
 }
 
 a:hover {

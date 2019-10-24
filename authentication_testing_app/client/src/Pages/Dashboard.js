@@ -6,28 +6,10 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <h1>Dashboard</h1>
-        Welcome {sessionStorage.getItem("username")}<br/>
+        Welcome<br/>
         <button type="button" onClick={(e) => this.logout(e)}>Logout</button>
       </div>
     );
-  }
-
-  componentWillMount() {
-    /*var url = "http://localhost:5000/auth";
-
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
-          console.log("SUCCESS: " + xhr.status);
-        } else {
-          console.log("FAIL: " + xhr.status);
-        }
-      }
-    }
-    xhr.withCredentials = true;
-    xhr.open("GET", url, true); // true for asynchronous
-    xhr.send(null);*/
   }
 
   logout() {
